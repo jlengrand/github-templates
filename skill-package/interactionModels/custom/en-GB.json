@@ -1,0 +1,725 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "github templates",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "say hello",
+            "say hello world",
+            "hello",
+            "say hi",
+            "say hi world",
+            "hi",
+            "how are you"
+          ]
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "LoggedInIntent",
+          "slots": [],
+          "samples": [
+            "please tell me my username",
+            "what s my github username",
+            "am i in github",
+            "what is my username",
+            "am i logged in"
+          ]
+        },
+        {
+          "name": "CreateRepositoryIntent",
+          "slots": [
+            {
+              "name": "language",
+              "type": "GITHUB_LANGUAGE",
+              "samples": [
+                "I want {language}",
+                "I need {language}",
+                "{language}"
+              ]
+            },
+            {
+              "name": "title",
+              "type": "GITHUB_TITLE"
+            }
+          ],
+          "samples": [
+            "make me a repo called {title}",
+            "I want a new {language} repo called {title}",
+            "new {language} repo with name {title}",
+            "new {language}  repository please",
+            "Create a new repo",
+            "I need a new repo",
+            "Create a {language} repository called title in Github",
+            "I want a new {language} repository in GitHub.",
+            "Create title and I want it to be a {language} repository",
+            "I need a new {language} repo. Call it title",
+            "Create a {language} repository called title"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "GITHUB_LANGUAGE",
+          "values": [
+            {
+              "name": {
+                "value": "CSS"
+              }
+            },
+            {
+              "name": {
+                "value": "Shell"
+              }
+            },
+            {
+              "name": {
+                "value": "Typescript"
+              }
+            },
+            {
+              "name": {
+                "value": "Kotlin"
+              }
+            },
+            {
+              "name": {
+                "value": "HTML"
+              }
+            },
+            {
+              "name": {
+                "value": "Elm"
+              }
+            },
+            {
+              "name": {
+                "value": "Scala"
+              }
+            },
+            {
+              "name": {
+                "value": "c"
+              }
+            },
+            {
+              "name": {
+                "value": "java"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GITHUB_TITLE",
+          "values": [
+            {
+              "name": {
+                "value": "advent of code 2018"
+              }
+            },
+            {
+              "name": {
+                "value": "advent of code 2020"
+              }
+            },
+            {
+              "name": {
+                "value": "alpine node rethinkdb"
+              }
+            },
+            {
+              "name": {
+                "value": "assistant conversation java"
+              }
+            },
+            {
+              "name": {
+                "value": "baker"
+              }
+            },
+            {
+              "name": {
+                "value": "baker recipe tuto"
+              }
+            },
+            {
+              "name": {
+                "value": "batchWaterMarking"
+              }
+            },
+            {
+              "name": {
+                "value": "carbon"
+              }
+            },
+            {
+              "name": {
+                "value": "cellar"
+              }
+            },
+            {
+              "name": {
+                "value": "cellar driver"
+              }
+            },
+            {
+              "name": {
+                "value": "check html links action"
+              }
+            },
+            {
+              "name": {
+                "value": "check html links action test"
+              }
+            },
+            {
+              "name": {
+                "value": "check html links netlify plugin"
+              }
+            },
+            {
+              "name": {
+                "value": "closeme"
+              }
+            },
+            {
+              "name": {
+                "value": "Coding4Interviews"
+              }
+            },
+            {
+              "name": {
+                "value": "coffee voyance"
+              }
+            },
+            {
+              "name": {
+                "value": "conversations"
+              }
+            },
+            {
+              "name": {
+                "value": "create"
+              }
+            },
+            {
+              "name": {
+                "value": "create elm app"
+              }
+            },
+            {
+              "name": {
+                "value": "d3 progress meter"
+              }
+            },
+            {
+              "name": {
+                "value": "design patterns"
+              }
+            },
+            {
+              "name": {
+                "value": "design patterns drawio"
+              }
+            },
+            {
+              "name": {
+                "value": "dialogflow fun"
+              }
+            },
+            {
+              "name": {
+                "value": "dolfijn2.0"
+              }
+            },
+            {
+              "name": {
+                "value": "dotfiles"
+              }
+            },
+            {
+              "name": {
+                "value": "elm dungeon"
+              }
+            },
+            {
+              "name": {
+                "value": "elm firebase"
+              }
+            },
+            {
+              "name": {
+                "value": "elm issues"
+              }
+            },
+            {
+              "name": {
+                "value": "elm language client vscode"
+              }
+            },
+            {
+              "name": {
+                "value": "elm memory"
+              }
+            },
+            {
+              "name": {
+                "value": "elm plural rules"
+              }
+            },
+            {
+              "name": {
+                "value": "elm ports"
+              }
+            },
+            {
+              "name": {
+                "value": "elm webgl playground"
+              }
+            },
+            {
+              "name": {
+                "value": "epaper dashboard blog"
+              }
+            },
+            {
+              "name": {
+                "value": "epaper.js"
+              }
+            },
+            {
+              "name": {
+                "value": "EssentialScala"
+              }
+            },
+            {
+              "name": {
+                "value": "Exposed"
+              }
+            },
+            {
+              "name": {
+                "value": "exposed imdb"
+              }
+            },
+            {
+              "name": {
+                "value": "FaceMovie"
+              }
+            },
+            {
+              "name": {
+                "value": "fortnoxovertime"
+              }
+            },
+            {
+              "name": {
+                "value": "functional programming scala"
+              }
+            },
+            {
+              "name": {
+                "value": "FunctionalProgrammingScalaCoursera"
+              }
+            },
+            {
+              "name": {
+                "value": "fuzzy date"
+              }
+            },
+            {
+              "name": {
+                "value": "github project"
+              }
+            },
+            {
+              "name": {
+                "value": "gitignore"
+              }
+            },
+            {
+              "name": {
+                "value": "gitlab recipes"
+              }
+            },
+            {
+              "name": {
+                "value": "google send money talk"
+              }
+            },
+            {
+              "name": {
+                "value": "hackerrank"
+              }
+            },
+            {
+              "name": {
+                "value": "helidon"
+              }
+            },
+            {
+              "name": {
+                "value": "homemade products"
+              }
+            },
+            {
+              "name": {
+                "value": "image processing"
+              }
+            },
+            {
+              "name": {
+                "value": "ing psd2 test"
+              }
+            },
+            {
+              "name": {
+                "value": "isochrone with google map"
+              }
+            },
+            {
+              "name": {
+                "value": "Ivolution"
+              }
+            },
+            {
+              "name": {
+                "value": "IvolutionWebsite"
+              }
+            },
+            {
+              "name": {
+                "value": "jenkinsArduinoNotification"
+              }
+            },
+            {
+              "name": {
+                "value": "jlengrand.github.io"
+              }
+            },
+            {
+              "name": {
+                "value": "keep a changelog"
+              }
+            },
+            {
+              "name": {
+                "value": "KnowMySize"
+              }
+            },
+            {
+              "name": {
+                "value": "kotlin spring boot elm starter"
+              }
+            },
+            {
+              "name": {
+                "value": "ktor"
+              }
+            },
+            {
+              "name": {
+                "value": "LAFF"
+              }
+            },
+            {
+              "name": {
+                "value": "Leaflet 1"
+              }
+            },
+            {
+              "name": {
+                "value": "linux conf"
+              }
+            },
+            {
+              "name": {
+                "value": "locator"
+              }
+            },
+            {
+              "name": {
+                "value": "MachineLearningCoursera"
+              }
+            },
+            {
+              "name": {
+                "value": "map web component example"
+              }
+            },
+            {
+              "name": {
+                "value": "native utils"
+              }
+            },
+            {
+              "name": {
+                "value": "Observer"
+              }
+            },
+            {
+              "name": {
+                "value": "open wc"
+              }
+            },
+            {
+              "name": {
+                "value": "picasa"
+              }
+            },
+            {
+              "name": {
+                "value": "picocli"
+              }
+            },
+            {
+              "name": {
+                "value": "picocli jfall bitesize 2020"
+              }
+            },
+            {
+              "name": {
+                "value": "pluxml theme darkFuture"
+              }
+            },
+            {
+              "name": {
+                "value": "polymer 3 example"
+              }
+            },
+            {
+              "name": {
+                "value": "polymer array bubble up example"
+              }
+            },
+            {
+              "name": {
+                "value": "polymer dashboard pluralsight"
+              }
+            },
+            {
+              "name": {
+                "value": "polymer hot reloading example"
+              }
+            },
+            {
+              "name": {
+                "value": "polymer summit whose flag"
+              }
+            },
+            {
+              "name": {
+                "value": "polymer summit whose flag polymer 3"
+              }
+            },
+            {
+              "name": {
+                "value": "Programming Tips"
+              }
+            },
+            {
+              "name": {
+                "value": "project euler"
+              }
+            },
+            {
+              "name": {
+                "value": "quarkus"
+              }
+            },
+            {
+              "name": {
+                "value": "quarkus workshop"
+              }
+            },
+            {
+              "name": {
+                "value": "redirectsJekyllToGhost"
+              }
+            },
+            {
+              "name": {
+                "value": "RoBottle"
+              }
+            },
+            {
+              "name": {
+                "value": "rocket"
+              }
+            },
+            {
+              "name": {
+                "value": "scala intro for java guys"
+              }
+            },
+            {
+              "name": {
+                "value": "schopenhauer jfall ignite 2020"
+              }
+            },
+            {
+              "name": {
+                "value": "sheepgame"
+              }
+            },
+            {
+              "name": {
+                "value": "ShowMeYourBigSatellite"
+              }
+            },
+            {
+              "name": {
+                "value": "simpleFoodDiary"
+              }
+            },
+            {
+              "name": {
+                "value": "soundcloud web component application"
+              }
+            },
+            {
+              "name": {
+                "value": "swacli"
+              }
+            },
+            {
+              "name": {
+                "value": "tailwind app"
+              }
+            },
+            {
+              "name": {
+                "value": "therobottle"
+              }
+            },
+            {
+              "name": {
+                "value": "Tippy"
+              }
+            },
+            {
+              "name": {
+                "value": "toggl button"
+              }
+            },
+            {
+              "name": {
+                "value": "twiderboard client"
+              }
+            },
+            {
+              "name": {
+                "value": "twidersite"
+              }
+            },
+            {
+              "name": {
+                "value": "twitterboard"
+              }
+            },
+            {
+              "name": {
+                "value": "undercover"
+              }
+            },
+            {
+              "name": {
+                "value": "vert.x"
+              }
+            },
+            {
+              "name": {
+                "value": "vscode elm signature"
+              }
+            },
+            {
+              "name": {
+                "value": "web components workshop"
+              }
+            },
+            {
+              "name": {
+                "value": "web components workshop deprecated"
+              }
+            },
+            {
+              "name": {
+                "value": "web components workshop polymer"
+              }
+            },
+            {
+              "name": {
+                "value": "webcomponentsjs"
+              }
+            },
+            {
+              "name": {
+                "value": "xuggle xuggler"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "CreateRepositoryIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "language",
+              "type": "GITHUB_LANGUAGE",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1247776455707.488691447960"
+              }
+            },
+            {
+              "name": "title",
+              "type": "GITHUB_TITLE",
+              "confirmationRequired": false,
+              "elicitationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1247776455707.488691447960",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Which language do you need"
+          }
+        ]
+      }
+    ]
+  }
+}
