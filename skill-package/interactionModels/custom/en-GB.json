@@ -61,7 +61,14 @@
             },
             {
               "name": "title",
-              "type": "GITHUB_TITLE"
+              "type": "GITHUB_TITLE",
+              "samples": [
+                "I want to call it {title}",
+                "call it {title}",
+                "{title} please",
+                "{title}",
+                "Let's name it {title}"
+              ]
             }
           ],
           "samples": [
@@ -125,7 +132,7 @@
             },
             {
               "name": {
-                "value": "java"
+                "value": "Java"
               }
             }
           ]
@@ -702,8 +709,10 @@
               "name": "title",
               "type": "GITHUB_TITLE",
               "confirmationRequired": false,
-              "elicitationRequired": false,
-              "prompts": {}
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1095825205436.831490275673"
+              }
             }
           ]
         }
@@ -717,6 +726,15 @@
           {
             "type": "PlainText",
             "value": "Which language do you need"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1095825205436.831490275673",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What name should I give to that repository?"
           }
         ]
       }
