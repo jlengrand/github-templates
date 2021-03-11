@@ -45,7 +45,7 @@ public class CreateRepositoryIntentHandler implements RequestHandler {
         Map<String, Slot> slots = intentRequest.getIntent().getSlots();
 
         for (Map.Entry<String, Slot> entry : slots.entrySet()) {
-            logger.log(Level.FINE, entry.getKey() + ":" + entry.getValue().getValue() + ":" + entry.getValue().getName());
+            logger.log(Level.WARNING, entry.getKey() + ":" + entry.getValue().getValue() + ":" + entry.getValue().getName());
         }
         String speechText;
 
