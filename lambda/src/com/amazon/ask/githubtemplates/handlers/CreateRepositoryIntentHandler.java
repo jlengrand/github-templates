@@ -12,10 +12,13 @@ package com.amazon.ask.githubtemplates.handlers;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.githubtemplates.handlers.github.GithubAPI;
+import com.amazon.ask.githubtemplates.handlers.github.GithubInitException;
 import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -34,6 +37,7 @@ public class CreateRepositoryIntentHandler implements RequestHandler {
     public Optional<Response> handle(HandlerInput input) {
         Logger logger = Logger.getAnonymousLogger();
 
+        // Not recommended in prod :)
         String username = System.getenv("GH_USERNAME");
         String key = System.getenv("GH_APIKEY");
 
@@ -41,17 +45,29 @@ public class CreateRepositoryIntentHandler implements RequestHandler {
         Map<String, Slot> slots = intentRequest.getIntent().getSlots();
 
         for (Map.Entry<String, Slot> entry : slots.entrySet()) {
-            logger.log(Level.SEVERE, entry.getKey() + ":" + entry.getValue().getValue() + ":" + entry.getValue().getName());
+            logger.log(Level.FINE, entry.getKey() + ":" + entry.getValue().getValue() + ":" + entry.getValue().getName());
         }
         String speechText;
-        if(username != null && key != null) {
+
+        try{
+            GithubAPI api = new GithubAPI();
+
             String language = slots.get("language").getValue();
             String title = slots.get("title").getValue();
 
-            speechText = "Let's go with " + language + " and " + title + " !";
-        }
-        else{
-             speechText = "Sorry, you are not logged in! I cannot create new repositories";
+            api.getGithub().createRepository("test")
+                    .fromTemplateRepository(
+                            api.TEMPLATES.get(language).getValue0(),
+                            api.TEMPLATES.get(language).getValue1()
+                    ).create();
+
+            speechText = "Great! I'm creating a " + language + " repository called " + title + " !";
+
+        } catch (GithubInitException e) {
+            speechText = "Sorry, you are not logged in! I cannot create new repositories";
+        } catch (IOException e) {
+            speechText = "Sorry, error when trying to create the repository. Please try again later";
+            logger.log(Level.SEVERE, e.getMessage());
         }
 
         return input.getResponseBuilder()

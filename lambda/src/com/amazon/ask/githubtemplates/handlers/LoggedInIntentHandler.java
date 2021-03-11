@@ -15,6 +15,8 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
@@ -27,10 +29,10 @@ public class LoggedInIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String username = System.getenv("GH_USERNAME");
-        String key = System.getenv("GH_APIKEY");
+        String username = System.getenv("GITHUB_LOGIN");
+        String key = System.getenv("GITHUB_OAUTH");
 
-        String speechText = username == null || key == null ? "Sorry, you are not logged in!" : "Logged in as " + username;
+        String speechText = username == null || key == null ? "Sorry, you are currently not logged in." : "Yes! You are logged in as " + username;
        return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .build();

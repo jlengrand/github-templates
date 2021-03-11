@@ -1,5 +1,6 @@
 package com.amazon.ask.githubtemplates.data;
 
+import org.javatuples.Pair;
 import org.kohsuke.github.*;
 
 import java.io.File;
@@ -15,10 +16,10 @@ import java.util.stream.StreamSupport;
 
 public class GithubDataGrabber {
 
-    private Map<String, String> languagesAndTemplates =
+    public static final Map<String, Pair<String, String>> TEMPLATES =
             Map.of(
-            "java", "https://github.com/Spring-Boot-Framework/Spring-Boot-Application-Template",
-            "typescript", "https://github.com/carsonfarmer/ts-template"
+                    "java", new Pair<>("Spring-Boot-Framework", "Spring-Boot-Application-Template"),
+                    "typescript", new Pair<>("carsonfarmer", "ts-template")
             );
 
     private GitHub githubApi;
@@ -27,26 +28,37 @@ public class GithubDataGrabber {
         this.githubApi = gitHub;
     }
 
-//    public static void main(String[] args) throws IOException {
-//        System.out.println("Grabbing data from your GitHub profile!");
-//
-//        Path githubConfigPath = Paths.get(Paths.get(System.getProperty("user.dir")).toString(), ".github");
-//        if(!new File(githubConfigPath.toString()).exists()){
-//            System.out.println("No GitHub config file found, exiting.");
-//            System.exit(0);
-//        }
-//
-//        GitHub github = GitHubBuilder.fromPropertyFile(githubConfigPath.toString()).build();
-//
-//        GithubDataGrabber githubHello = new GithubDataGrabber(github);
-//
-//        githubHello.getLanguages("jlengrand").forEach(System.out::println);
-//        System.out.println("------");
-//        githubHello.getRepositories("jlengrand").forEach(System.out::println);
-//    }
+    public static void main(String[] args) throws IOException {
+        System.out.println("Grabbing data from your GitHub profile!");
 
-    public Set<String> getLanguages(String username) throws IOException {
-        PagedIterable<GHRepository> repos =  this.githubApi.getUser(username).listRepositories();
+        Path githubConfigPath = Paths.get(Paths.get(System.getProperty("user.dir")).toString(), ".githubconfig");
+        if(!new File(githubConfigPath.toString()).exists()){
+            System.out.println("No GitHub config file found, exiting.");
+            System.exit(0);
+        }
+
+        GitHub github = GitHubBuilder.fromPropertyFile(githubConfigPath.toString()).build();
+
+        GithubDataGrabber githubHello = new GithubDataGrabber(github);
+
+        githubHello.getLanguages().forEach(System.out::println);
+        System.out.println("------");
+        githubHello.getRepositories().forEach(System.out::println);
+
+        System.out.println("------");
+        System.out.println(TEMPLATES.get("java").getValue0());
+        System.out.println(TEMPLATES.get("java").getValue1());
+
+//        github.createRepository("theoneandonlytest")
+//                .fromTemplateRepository(
+//                        TEMPLATES.get("java").getValue0(),
+//                        TEMPLATES.get("java").getValue1()
+//                ).create();
+
+    }
+
+    public Set<String> getLanguages() throws IOException {
+        PagedIterable<GHRepository> repos =  this.githubApi.getMyself().listRepositories();
 
         return StreamSupport.stream(repos.spliterator(), false)
                 .map(repo -> repo.getLanguage())
@@ -54,8 +66,8 @@ public class GithubDataGrabber {
                 .collect(Collectors.toSet());
     }
 
-    public List<String> getRepositories(String username) throws IOException {
-        PagedIterable<GHRepository> repos =  this.githubApi.getUser(username).listRepositories();
+    public List<String> getRepositories() throws IOException {
+        PagedIterable<GHRepository> repos =  this.githubApi.getMyself().listRepositories();
 
         return StreamSupport.stream(repos.spliterator(), false)
                 .map(repo -> sanitize(repo.getName()))
