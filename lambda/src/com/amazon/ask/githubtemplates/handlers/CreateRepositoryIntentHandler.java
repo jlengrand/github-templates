@@ -61,7 +61,7 @@ public class CreateRepositoryIntentHandler implements RequestHandler {
                             api.TEMPLATES.get(language).getValue1()
                     ).create();
 
-            speechText = "Great! I'm creating a " + language + " repository called " + title + " !";
+            speechText = "Great! I've created a " + language + " repository called " + title + " !";
 
         } catch (GithubInitException e) {
             speechText = "Sorry, you are not logged in! I cannot create new repositories";
