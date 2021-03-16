@@ -12,7 +12,9 @@ public class GithubAPI {
     public static final Map<String, Pair<String, String>> TEMPLATES =
             Map.of(
                     "java", new Pair<>("Spring-Boot-Framework", "Spring-Boot-Application-Template"),
-                    "typescript", new Pair<>("carsonfarmer", "ts-template")
+                    "typescript", new Pair<>("carsonfarmer", "ts-template"),
+                    "javascript", new Pair<>("jlengrand", "openwc-template"),
+                    "elm", new Pair<>("jlengrand", "elm-firebase")
             );
 
     private GitHub github;

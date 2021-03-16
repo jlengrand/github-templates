@@ -52,8 +52,8 @@ public class CreateRepositoryIntentHandler implements RequestHandler {
         try{
             GithubAPI api = new GithubAPI();
 
-            String language = slots.get("language").getValue();
-            String title = slots.get("title").getValue();
+            String language = slots.get("language").getValue().toLowerCase();
+            String title = slots.get("title").getValue().replace(" ", "-");
 
             api.getGithub().createRepository(title)
                     .fromTemplateRepository(

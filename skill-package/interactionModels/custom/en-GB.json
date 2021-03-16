@@ -72,6 +72,12 @@
             }
           ],
           "samples": [
+            "make me a new {language} repo",
+            "make me a new {language} repository",
+            "create a repository in {language} called {title}",
+            "create a repo in {language}",
+            "create a new {language} repo called {title}",
+            "create a new {language} repository please",
             "make me a repo called {title}",
             "I want a new {language} repo called {title}",
             "new {language} repo with name {title}",
