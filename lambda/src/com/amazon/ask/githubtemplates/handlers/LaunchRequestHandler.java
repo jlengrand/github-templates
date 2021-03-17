@@ -28,10 +28,11 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Welcome to GitHub templates! Let's create a repository!";
+        String speechText = "Welcome to GitHub templates! What would you want to do today!";
+        String repromptText = "Github Templates here, what shall I do?!";
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withReprompt(speechText)
+                .withReprompt(repromptText)
                 .build();
     }
 

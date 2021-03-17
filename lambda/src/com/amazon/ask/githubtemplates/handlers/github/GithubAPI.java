@@ -14,6 +14,7 @@ public class GithubAPI {
                     "java", new Pair<>("Spring-Boot-Framework", "Spring-Boot-Application-Template"),
                     "typescript", new Pair<>("carsonfarmer", "ts-template"),
                     "javascript", new Pair<>("jlengrand", "openwc-template"),
+                    "HTML", new Pair<>("jlengrand", "openwc-template"),
                     "elm", new Pair<>("jlengrand", "elm-firebase")
             );
 
