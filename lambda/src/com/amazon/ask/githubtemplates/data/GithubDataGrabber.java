@@ -49,12 +49,6 @@ public class GithubDataGrabber {
         System.out.println(TEMPLATES.get("java").getValue0());
         System.out.println(TEMPLATES.get("java").getValue1());
 
-//        github.createRepository("theoneandonlytest")
-//                .fromTemplateRepository(
-//                        TEMPLATES.get("java").getValue0(),
-//                        TEMPLATES.get("java").getValue1()
-//                ).create();
-
     }
 
     public Set<String> getLanguages() throws IOException {

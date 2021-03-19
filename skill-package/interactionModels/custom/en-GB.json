@@ -72,6 +72,8 @@
             }
           ],
           "samples": [
+            "give me a new repository in {language} called {title} .",
+            "create me a new repo",
             "make me a new {language} repo",
             "make me a new {language} repository",
             "create a repository in {language} called {title}",
@@ -103,17 +105,17 @@
             },
             {
               "name": {
-                "value": "Shell"
+                "value": "shell"
               }
             },
             {
               "name": {
-                "value": "Typescript"
+                "value": "typescript"
               }
             },
             {
               "name": {
-                "value": "Kotlin"
+                "value": "kotlin"
               }
             },
             {
@@ -123,12 +125,12 @@
             },
             {
               "name": {
-                "value": "Elm"
+                "value": "elm"
               }
             },
             {
               "name": {
-                "value": "Scala"
+                "value": "scala"
               }
             },
             {
@@ -138,7 +140,7 @@
             },
             {
               "name": {
-                "value": "Java"
+                "value": "java"
               }
             }
           ]
@@ -729,6 +731,10 @@
       {
         "id": "Elicit.Slot.1247776455707.488691447960",
         "variations": [
+          {
+            "type": "PlainText",
+            "value": "in which language"
+          },
           {
             "type": "PlainText",
             "value": "Which language do you need"
